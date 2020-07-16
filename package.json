@@ -1,5 +1,5 @@
 {
-  "name": "snippet_filter",
+  "name": "react-filter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
+  "author": "Nik Danilov",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

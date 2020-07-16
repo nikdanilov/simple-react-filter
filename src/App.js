@@ -1,24 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css"
+
+const languages = [
+  "Python",
+  "Java",
+  "JavaScript",
+  "C",
+  "C++",
+  "C#",
+  "SQL",
+  "Shell",
+];
 
 function App() {
+  const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    const results = languages.filter((lang) =>
+      lang.toLowerCase().includes(search.toLocaleLowerCase())
+    );
+    setSearchResults(results);
+  }, [search]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div
+        style={{
+          display: "block",
+          border: "2px solid green",
+          width: "20%",
+          textAlign: "center",
+          margin: "0 auto",
+          marginTop: "2rem",
+        }}
+      >
+        <h1>React Filter</h1>
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          />
+        <ul style={{margin:"1rem"}}>
+          {searchResults.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
