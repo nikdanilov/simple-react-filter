@@ -1,20 +1,26 @@
 {
-  "name": "react-filter",
+  "name": "simple-react-filter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "concat": "^1.0.3",
+    "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
   "author": "Nik Danilov",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build:css": "npm run post:css & npm run concat:css",
+    "watch:css": "npm run post:css & npm run concat:css",
+    "post:css": "postcss src/styles/tailwind.css -o src/styles/tailwind.post.css",
+    "concat:css": "concat -o src/App.css src/styles/tailwind.post.css src/styles/global.css",
+    "start": "npm run watch:css & react-scripts start",
+    "build": "npm run build:css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -31,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.5",
+    "tailwindcss": "^1.5.1"
   }
 }
