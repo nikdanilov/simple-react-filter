@@ -1,3 +1,14 @@
+:root {
+    --brand: #f2709c;
+    --brand-second: #ff9472;
+    --white: #fff;
+    --black: #000;
+    --featured-theme-1: #f2c570;
+    --featured-theme-2: #9ef270;
+    --featured-theme-3: #709ef2;
+    --featured-theme-4: #c570f2;
+  }
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
